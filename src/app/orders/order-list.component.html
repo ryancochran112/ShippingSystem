@@ -1,0 +1,103 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{orderListTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+                <div class="col-md-2">{{filterText}}</div>
+                <div class="col-md-4">
+                    <input type ="text" 
+                    [(ngModel)] = 'listFilter'/>
+                </div>
+            </div>
+            <div class="row" *ngIf = 'listFilter && listFilter.length'>
+                <div class="col-md-6">
+                    <h3>{{filterText}} {{listFilter}}</h3>
+                </div>
+            </div>
+        <div class="table-responsive">
+            <table class="table table-striped" *ngIf = 'filteredOrders && filteredOrders.length'>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Order</th>
+                        <th>Product</th>
+                        <th>Customer Name</th>
+                        <th>Customer Address</th>
+                        <th>Ship Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = 'let order of filteredOrders'>
+                        <td>
+                            <button class="btn btn-primary" 
+                            title="Add to Picking Group"
+                            (click)="addOrderToShipmentGroup($event)"
+                            #elem [attr.id]="order.orderNumber">+</button>
+                        </td>
+                        <td>{{order.orderNumber}}</td>
+                        <td>{{order.product}}</td>
+                        <td>{{order.customerName}}</td>
+                        <td>{{order.customerAddress}}</td>
+                        <td>{{order.shipDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<form #testform="ngForm">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-2">{{shipmentGroupTitle}}</div>
+                <div class="col-md-10">
+                    <button *ngIf = "shipmentGroup && shipmentGroup.length" 
+                    type="submit"class="btn btn-default"
+                    (click)="shipOrders()">Ship Orders</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped" *ngIf = 'shipmentGroup && shipmentGroup.length'>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Priority</th>
+                            <th>Order</th>
+                            <th>Product</th>
+                            <th>Customer Name</th>
+                            <th>Customer Address</th>
+                            <th>Ship Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = 'let order of shipmentGroup'>
+                            <td>
+                                <button class="btn btn-danger" 
+                                title="Remove"
+                                (click)="removeOrderFromShipmentGroup($event)"
+                                #elem [attr.id]="order.orderNumber">-</button>
+                            </td>
+                            <td>
+                                <input name="order-{{order.orderNumber}}" style="width: 50px"
+                                [(ngModel)]="order.priority" #priority="ngModel" type="number" required/>
+                                    <div *ngIf="priority.invalid"class="alert alert-danger">
+                                        <div>
+                                            Must be valid number.
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>{{order.orderNumber}}</td>
+                            <td>{{order.product}}</td>
+                            <td>{{order.customerName}}</td>
+                            <td>{{order.customerAddress}}</td>
+                            <td>{{order.shipDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
