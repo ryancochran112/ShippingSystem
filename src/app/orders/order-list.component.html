@@ -31,7 +31,7 @@
                     <tr *ngFor = 'let order of filteredOrders'>
                         <td>
                             <button class="btn btn-primary" 
-                            title="Add to Picking Group"
+                            title="Add to Shipment Group"
                             (click)="addOrderToShipmentGroup($event)"
                             #elem [attr.id]="order.orderNumber">+</button>
                         </td>
