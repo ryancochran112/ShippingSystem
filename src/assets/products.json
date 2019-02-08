@@ -1,0 +1,42 @@
+[
+    {
+        "orderNumber": "3172349094",
+        "product": "Saxophone",
+        "customerName": "Dave Sanborn",
+        "customerAddress": "88 Saxophone Lane",
+        "shipDate": "12/8/2017",
+        "priority" : 0
+    },
+    {
+        "orderNumber": "3245678901",
+        "product": "Free Weights",
+        "customerName": "Arnold Schwarzenegger",
+        "customerAddress": "7 Pumping Iron Drive",
+        "shipDate": "12/9/2017",
+        "priority" : 0
+    },
+    {
+        "orderNumber": "2345660009",
+        "product": "Paints",
+        "customerName": "Bob Ross",
+        "customerAddress": "12 Artistic Avenue",
+        "shipDate": "12/10/2017",
+        "priority" : 0
+    },
+    {
+        "orderNumber": "3459080921",
+        "product": "Books",
+        "customerName": "Milton Friedman",
+        "customerAddress": "1 Economics Way",
+        "shipDate": "12/11/2017",
+        "priority" : 0
+    },
+    {
+        "orderNumber": "2304982340",
+        "product": "Tennis Racket",
+        "customerName": "Rafael Nadal",
+        "customerAddress": "11 Spanish Island Street",
+        "shipDate": "12/15/2017",
+        "priority" : 0
+    }
+]
